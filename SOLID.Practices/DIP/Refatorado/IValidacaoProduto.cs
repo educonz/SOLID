@@ -1,7 +1,7 @@
 ﻿using SOLID.Practices.DIP.Refatorado;
 using System;
 
-namespace SOLID.Practices.SRP.Refatorado
+namespace SOLID.Practices.DIP.Refatorado
 {
     public interface IValidacaoProduto
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SOLID.Practices.DIP.Refatorado
+namespace SOLID.Practices.SRP.Refatorado
 {
     public class ValidacaoProduto
     {

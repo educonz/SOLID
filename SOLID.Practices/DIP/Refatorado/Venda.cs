@@ -1,20 +1,23 @@
-﻿using System.Collections.Generic;
+﻿using SOLID.Practices.DIP.Refatorado;
+using System.Collections.Generic;
 
 namespace SOLID.Practices.DIP.Refatorado
 {
     public class Venda
     {
-        private readonly Repository _repository;
+        private readonly IRepository _repository;
         private readonly IList<Produto> _produtos;
-        private readonly ValidacaoProduto _validacaoProduto;
-        private readonly GerenciamentoEstoque _gerenciamentoEstoque;
+        private readonly IValidacaoProduto _validacaoProduto;
+        private readonly IGerenciamentoEstoque _gerenciamentoEstoque;
 
-        public Venda()
+        public Venda(IRepository repository, 
+            IValidacaoProduto validacaoProduto,
+            IGerenciamentoEstoque gerenciamentoEstoque)
         {
-            _repository = new Repository();
+            _repository = repository;
+            _validacaoProduto = validacaoProduto;
+            _gerenciamentoEstoque = gerenciamentoEstoque;
             _produtos = new List<Produto>();
-            _validacaoProduto = new ValidacaoProduto();
-            _gerenciamentoEstoque = new GerenciamentoEstoque();
         }
 
         public string AdicionarProduto(string codigoProduto, int quantidade)

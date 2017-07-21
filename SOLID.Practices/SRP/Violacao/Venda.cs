@@ -1,36 +1,56 @@
-﻿using SOLID.Practices.DIP.Refatorado;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace SOLID.Practices.SRP.Violacao
 {
+    public class Repository
+    {
+        public IQueryable<T> Query<T>() { return default(IQueryable<T>); }
+        public T Save<T>(T entity) { return default(T); }
+    }
+
+    public class Produto
+    {
+        public string CodigoProduto { get; set; }
+        public decimal ValorUnitario { get; set; }
+    }
+
+    public class Estoque
+    {
+        public string CodigoProduto { get; set; }
+        public decimal Quantidade { get; set; }
+    }
+
     public class Venda
     {
         private readonly Repository _repository;
         private readonly IList<Produto> _produtos;
-        private readonly ValidacaoProduto _validacaoProduto;
-        private readonly GerenciamentoEstoque _gerenciamentoEstoque;
 
         public Venda()
         {
             _repository = new Repository();
             _produtos = new List<Produto>();
-            _validacaoProduto = new ValidacaoProduto();
-            _gerenciamentoEstoque = new GerenciamentoEstoque();
         }
 
         public string AdicionarProduto(string codigoProduto, int quantidade)
         {
-            var resultadoValidacaoProduto = _validacaoProduto.ValidarCodigoProduto(codigoProduto);
-            if (!string.IsNullOrEmpty(resultadoValidacaoProduto))
-                return resultadoValidacaoProduto;
+            if (codigoProduto.Length == 6)
+            {
+                return "Produto inválido";
+            }
 
-            var resultadoValidacaoProdutoExiste = _validacaoProduto.ValidarProdutoExiste(codigoProduto);
-            if (!string.IsNullOrEmpty(resultadoValidacaoProdutoExiste.Item1))
-                return resultadoValidacaoProdutoExiste.Item1;
+            var produto = _repository.Query<Produto>().FirstOrDefault(x => x.CodigoProduto.Equals(codigoProduto));
 
-            _gerenciamentoEstoque.BaixarEstoque(codigoProduto, quantidade);
+            if (produto == null)
+            {
+                return "Produto não encontrado";
+            }
 
-            _produtos.Add(resultadoValidacaoProdutoExiste.Item2);
+            var estoque = _repository.Query<Estoque>().FirstOrDefault(x => x.CodigoProduto.Equals(codigoProduto));
+            estoque.Quantidade -= quantidade;
+            _repository.Save(estoque);
+
+            _produtos.Add(produto);
 
             return $"Produto adicionado {codigoProduto}";
         }
@@ -39,6 +59,11 @@ namespace SOLID.Practices.SRP.Violacao
         {
             // implementações
             return default(decimal);
+        }
+
+        public void GerarPlanilhaExcel()
+        {
+            // implementações
         }
     }
 }

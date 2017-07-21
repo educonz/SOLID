@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace SOLID.Practices.SRP.Refatorado
+namespace SOLID.Practices.DIP.Refatorado
 {
     public interface IRepository
     {

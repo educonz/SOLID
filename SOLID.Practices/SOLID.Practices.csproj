@@ -43,14 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DIP\Refatorado\Estoque.cs" />
-    <Compile Include="DIP\Refatorado\FuncoesExcel.cs" />
-    <Compile Include="DIP\Refatorado\GerenciamentoEstoque.cs" />
-    <Compile Include="DIP\Refatorado\Repository.cs" />
-    <Compile Include="DIP\Refatorado\Produto.cs" />
-    <Compile Include="DIP\Refatorado\ValidacaoProduto.cs" />
-    <Compile Include="DIP\Refatorado\Venda.cs" />
-    <Compile Include="DIP\Violacao\Venda.cs" />
+    <Compile Include="SRP\Refatorado\Estoque.cs" />
+    <Compile Include="SRP\Refatorado\FuncoesExcel.cs" />
+    <Compile Include="SRP\Refatorado\GerenciamentoEstoque.cs" />
+    <Compile Include="SRP\Refatorado\Repository.cs" />
+    <Compile Include="SRP\Refatorado\Produto.cs" />
+    <Compile Include="SRP\Refatorado\ValidacaoProduto.cs" />
+    <Compile Include="SRP\Refatorado\Venda.cs" />
+    <Compile Include="SRP\Violacao\Venda.cs" />
     <Compile Include="ISP\Refatorado\Dev.cs" />
     <Compile Include="ISP\Refatorado\IDev.cs" />
     <Compile Include="ISP\Refatorado\IProductOwner.cs" />
@@ -74,11 +74,11 @@
     <Compile Include="OCP\Violacao\TipoConta.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SRP\Refatorado\IGerenciamentoEstoque.cs" />
-    <Compile Include="SRP\Refatorado\IRepository.cs" />
-    <Compile Include="SRP\Refatorado\IValidacaoProduto.cs" />
-    <Compile Include="SRP\Refatorado\Venda.cs" />
-    <Compile Include="SRP\Violacao\Venda.cs" />
+    <Compile Include="DIP\Refatorado\IGerenciamentoEstoque.cs" />
+    <Compile Include="DIP\Refatorado\IRepository.cs" />
+    <Compile Include="DIP\Refatorado\IValidacaoProduto.cs" />
+    <Compile Include="DIP\Refatorado\Venda.cs" />
+    <Compile Include="DIP\Violacao\Venda.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

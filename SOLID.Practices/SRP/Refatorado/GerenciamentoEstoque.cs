@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace SOLID.Practices.DIP.Refatorado
+namespace SOLID.Practices.SRP.Refatorado
 {
     public class GerenciamentoEstoque
     {
