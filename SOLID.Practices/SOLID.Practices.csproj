@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OCP\Refatorado\DebitoContaJuridica.cs" />
     <Compile Include="SRP\Refatorado\Estoque.cs" />
     <Compile Include="SRP\Refatorado\FuncoesExcel.cs" />
     <Compile Include="SRP\Refatorado\GerenciamentoEstoque.cs" />
